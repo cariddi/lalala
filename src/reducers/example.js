@@ -1,18 +1,4 @@
-import { asyncActionHandler } from './asyncActionHandler';
+import { makeAsyncActionReducer } from '../lib/reduxUtils';
 import { types } from '../actions/types';
 
-export const initialState = {
-	sending: false,
-	error: null,
-	success: false
-};
-
-export function ExampleReducer( state = initialState, action ) {
-	const { type } = action;
-	switch ( type ) {
-	case types.EXAMPLE:
-		return asyncActionHandler( state, action );
-	default:
-		return state;
-	}
-}
+export const example = makeAsyncActionReducer( types.EXAMPLE );

@@ -1,9 +1,9 @@
 import { mockedStore } from '../mocks/mockedStore';
-import { exampleAction } from '../../src/actions/Example';
-import { exampleReducer } from '../../src/reducers/Example';
+import { exampleAction } from '../../src/actions/example';
+import { example } from '../../src/reducers/example';
 import { types } from '../../src/actions/types';
 
-const store = mockedStore( exampleReducer );
+const store = mockedStore( example );
 
 describe( 'Example actions', () => {
 	describe( 'exampleAction', () => {
