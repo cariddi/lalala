@@ -1,4 +1,4 @@
-import { asyncActionHandler } from './AsyncActionHandler';
+import { asyncActionHandler } from './asyncActionHandler';
 import { types } from '../actions/types';
 
 export const initialState = {
