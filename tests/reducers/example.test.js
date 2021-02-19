@@ -1,5 +1,5 @@
 import { LIFECYCLE } from 'redux-pack';
-import { makePackAction } from '../../mocks/makePackAction';
+import { makePackAction } from '../mocks/makePackAction';
 import { ExampleReducer, initialState } from '../../src/reducers/Example';
 import { types } from '../../src/actions/types';
 

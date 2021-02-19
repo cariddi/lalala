@@ -108,6 +108,9 @@
       "<rootDir>/tests/**/*.{js,jsx,mjs}",
       "<rootDir>/tests/**/?(*.)(spec|test).{js,jsx,mjs}"
     ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/tests/mocks/"
+    ],
     "testEnvironment": "jsdom",
     "testRunner": "/Users/lcariddi/Desktop/Amalgama/Tech/contact-list-test/node_modules/jest-circus/runner.js",
     "transform": {

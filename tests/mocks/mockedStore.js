@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { middleware as reduxPackMiddleware } from 'redux-pack';
-import Api from '../src/services/Api';
+import Api from '../../src/services/Api';
 
 const api = new Api();
 
