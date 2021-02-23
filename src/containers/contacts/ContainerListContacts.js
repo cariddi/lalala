@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connectComponent } from '../../lib/connectComponent';
-import { getContacts } from '../../selectors/contacts';
+import { getContactsSelector } from '../../selectors/contacts';
 
 export class ContainerListContacts extends Component {
     componentWillMount() {
@@ -14,6 +14,8 @@ export class ContainerListContacts extends Component {
 
     render() {
         const { contacts } = this;
+
+        console.log(this.contacts)
 
         return (
             <div className='ListContacts'>
@@ -44,6 +46,6 @@ ContainerListContacts.defaultProps = {
 };
 
 export default connectComponent( ( state, props ) => ( {
-	fetchContactsRequest: state.fetchContactsRequest, //reducer
-	contacts: getContacts( state, props ) //selector
+    fetchContactsRequest: state.fetchContactsRequest, //reducer
+	contacts: getContactsSelector( state, props ) //selector
 } ) )( ContainerListContacts );
