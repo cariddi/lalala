@@ -1,5 +1,5 @@
-import * as exampleActions from './example';
+import * as contactsActions from './contacts';
 
-export const ActionsCreator = {
-	...exampleActions
+export default {
+	...contactsActions
 };

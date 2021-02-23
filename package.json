@@ -55,6 +55,7 @@
     "react-dev-utils": "^11.0.2",
     "react-dom": "16.4.0",
     "react-refresh": "^0.8.3",
+    "reselect": "3.0.1",
     "resolve-url-loader": "^3.1.2",
     "sass-loader": "^10.0.5",
     "semver": "7.3.2",
@@ -96,8 +97,16 @@
       "<rootDir>/src"
     ],
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
+      "src/**/*.{js,jsx,mjs}",
+      "!src/**/index.js",
+      "!src/store.js",
+      "!src/raw-components/**/*.{js,jsx,mjs}"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "text-summary"
     ],
     "setupFiles": [
       "react-app-polyfill/jsdom"
@@ -157,8 +166,9 @@
     "history": "^4.7.2",
     "jest-enzyme": "^7.1.2",
     "promise": "^8.1.0",
+    "prop-types": "15.6.1",
     "react-redux": "5.0.7",
-    "react-router": "^5.2.0",
+    "react-router": "4.3.1",
     "react-router-dom": "4.3.1",
     "redux": "^4.0.5",
     "redux-mock-store": "^1.5.4",

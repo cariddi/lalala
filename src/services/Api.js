@@ -2,7 +2,7 @@ import ApiHeaders from './ApiHeaders';
 import ApiResponseError from './ApiResponseError';
 
 export default class Api {
-	constructor( fetchBackend = fetch ) {
+	constructor( fetchBackend = fetch.bind( window ) ) {
 		this.fetch = fetchBackend;
 		this.headers = new ApiHeaders();
 	}

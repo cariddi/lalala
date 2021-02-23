@@ -1,3 +1,3 @@
-import { createTypes } from './typesCreator';
+// Contacts
+export const FETCH_CONTACTS = 'FETCH_CONTACTS';
 
-export const types = createTypes( 'EXAMPLE' );
