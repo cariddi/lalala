@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import App from '../../src/App';
-import React from 'react';
 import TableComponent from '../../src/components/TableComponent'
+import React from 'react';
 
 describe( '<App />', () => {
 	it( 'renders the Table component', () => {

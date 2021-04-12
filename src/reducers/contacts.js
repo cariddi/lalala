@@ -14,7 +14,6 @@ export const contacts = ( state = {}, action ) => {
 	case FETCH_CONTACT_DATA:
 		return handleSuccess( state, action, ( prevState ) => {
 			const contactData = action.payload;
-			console.log('reducer: ', { ...prevState, contactData });
 			return { ...prevState, contactData: contactData };
 		} );
 	default:
