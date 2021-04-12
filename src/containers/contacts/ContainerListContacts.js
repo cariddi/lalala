@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connectComponent } from '../../lib/connectComponent';
 import { getContactsSelector } from '../../selectors/contacts';
+import TableComponent from '../../components/TableComponent'
 
 export class ContainerListContacts extends Component {
     componentWillMount() {
@@ -12,25 +13,13 @@ export class ContainerListContacts extends Component {
 
     fetchContacts() { this.props.fetchContacts( ); }
 
-    render() {
+	render() {
         const { contacts } = this;
 
-        console.log(this.contacts)
-
-        return (
+		return (
             <div className='ListContacts'>
-                Contact List
-                {
-                    this.props.contacts ?
-
-                    this.props.contacts.map((c, idx) => {
-                        return (
-                            <li key={idx}>{c.id - c.name}</li>
-                        )
-                    })
-                    :
-                    <p>No contacts</p>
-                }
+                <h2>Contact List</h2>
+                <TableComponent contacts={contacts} />
             </div>
         )
     }
@@ -42,10 +31,10 @@ ContainerListContacts.propTypes = {
 };
 
 ContainerListContacts.defaultProps = {
-	contacts: undefined
+    contacts: undefined,
 };
 
 export default connectComponent( ( state, props ) => ( {
-    fetchContactsRequest: state.fetchContactsRequest, //reducer
-	contacts: getContactsSelector( state, props ) //selector
+	fetchContactsRequest: state.fetchContactsRequest, //reducer
+    contacts: getContactsSelector( state, props ), //selector
 } ) )( ContainerListContacts );
