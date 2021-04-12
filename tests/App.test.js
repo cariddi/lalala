@@ -1,26 +1,12 @@
-import { render, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { defaultMockedStore } from './mocks/store';
+import { shallow, mount } from 'enzyme';
+import { MemoryRouter } from 'react-router';
 import App from '../src/App';
-import { ContainerListContacts } from '../src/containers/contacts/ContainerListContacts';
-
-const wrapWithProviderAndRouter = ( component, defaultRoute = '/' ) => (
-	<Provider store={defaultMockedStore}>
-		<MemoryRouter initialEntries={[ defaultRoute ]}>
-			{component}
-		</MemoryRouter>
-	</Provider>
-);
-
+import React, { Component } from 'react';
+import ContainerListContacts from '../src/containers/contacts/ContainerListContacts'
 
 describe( '<App />', () => {
-	it( 'renders the Nav component', () => {
-		const wrapper = shallow( wrapWithProviderAndRouter( <App /> ) );
-		expect( wrapper.find( Nav ) ).not.toBeNull();
-	} );
-	
-	it( 'renders the ContactList page when the route matchs /', () => {
-		const wrapper = mount( wrapWithProviderAndRouter( <App />, '/' ) );
+	it( 'renders the ListContacts component', () => {
+		const wrapper = shallow( <App /> );
 		expect( wrapper.find( ContainerListContacts ) ).not.toBeNull();
 	} );
 } );
