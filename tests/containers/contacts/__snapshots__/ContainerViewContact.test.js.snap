@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactsView Container passes the contact data to the Form component 1`] = `
+<div
+  className="ListContacts"
+>
+  <h2>
+    Contact View
+  </h2>
+  <FormComponent />
+</div>
+`;

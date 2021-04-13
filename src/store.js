@@ -9,7 +9,7 @@ import Api from './services/Api';
 const api = new Api();
 
 // FIXME: Remove it when the users authentication process is implemented
-api.headers.authorization = 'Bearer d23d992ece469a97dd206f77f15eb4cd2cc6a6750fbfc24b104237d7504730dd';
+api.headers.authorization = 'Bearer 8a262b8f12159039dd54e8829208782829339373a2473e917fc55a50477f32e7';
 
 export const history = createBrowserHistory();
 export const store = createStore(

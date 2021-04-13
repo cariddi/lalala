@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactsList Container passes the contacts list to the Table component 1`] = `
+<div
+  className="ListContacts"
+>
+  <h2>
+    Contact List
+  </h2>
+  <TableComponent />
+</div>
+`;
