@@ -7,31 +7,31 @@ import { fetchContactsRequest, contacts } from '../../src/reducers/contacts';
 
 const fakeContacts = { "contacts": [ { "id": 1 } ] };
 
+const testReducerRequestFn = (packAction, requestFn, actionType, expectedEndState, payload = undefined) => {
+	const action = payload ? packAction( actionType, payload ) : packAction( actionType);
+	const endState = requestFn( initialAsyncRequestState, action );
+	expect( expectedEndState ).toEqual( endState );
+};
+
 describe( 'fetchContactsRequest', () => {
 	it( "sets 'sending' to true on loading", () => {
 		const expectedEndState = { ...initialAsyncRequestState, sending: true };
-		const action = makeStartPackAction( FETCH_CONTACTS );
-		const endState = fetchContactsRequest( initialAsyncRequestState, action );
-		expect( expectedEndState ).toEqual( endState );
+		testReducerRequestFn(makeStartPackAction, fetchContactsRequest, FETCH_CONTACTS, expectedEndState);
 	} );
 
 	it( "sets 'error' on failure", () => {
 		const expectedEndState = { ...initialAsyncRequestState, error: 'error' };
-		const action = makeErrorPackAction( FETCH_CONTACTS, 'error' );
-		const endState = fetchContactsRequest( initialAsyncRequestState, action );
-		expect( expectedEndState ).toEqual( endState );
+		testReducerRequestFn(makeErrorPackAction, fetchContactsRequest, FETCH_CONTACTS, expectedEndState, 'error');
 	} );
 
 	it( "sets 'success' to true on success", () => {
 		const expectedEndState = { ...initialAsyncRequestState, success: true };
-		const action = makeSuccessPackAction( FETCH_CONTACTS, fakeContacts );
-		const endState = fetchContactsRequest( initialAsyncRequestState, action );
-		expect( expectedEndState ).toEqual( endState );
+		testReducerRequestFn(makeSuccessPackAction, fetchContactsRequest, FETCH_CONTACTS, expectedEndState, fakeContacts);
 	} );
 } );
 
 describe( 'contacts', () => {
-	//FETCH CONTACT LIST AC
+	//FETCH CONTACT LIST ACTION
 	describe( 'with a FETCH_CONTACTS success action', () => {
 		describe( 'with empty contacts', () => {
 			it( 'adds a new contact', () => {
@@ -52,8 +52,7 @@ describe( 'contacts', () => {
 				const state = contacts( {}, action );
 
 				expect( Object.keys( state.contacts ) ).toHaveLength( 2 );
-				expect( state.contacts[ 0 ] ).toEqual( actionPayload[ 0 ] );
-				expect( state.contacts[ 1 ] ).toEqual( actionPayload[ 1 ] );
+				expect( state.contacts ).toEqual( actionPayload );
 			} );
 		} );
 
@@ -79,7 +78,7 @@ describe( 'contacts', () => {
 		} );
 	} );
 
-	//FETCH SINGLE CONTACT DATA AC
+	//FETCH SINGLE CONTACT DATA ACTION
 	describe( 'with a FETCH_CONTACT_DATA success action', () => {
 		describe( 'with no previous contact data', () => {
 			it( 'adds the new contact data', () => {
