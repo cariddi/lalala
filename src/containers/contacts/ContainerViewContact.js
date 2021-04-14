@@ -7,7 +7,8 @@ import FormComponent from '../../components/FormComponent'
 export class ContainerViewContact extends Component {
     componentWillMount() {
         const { id } = this.props.match.params;
-		if ( !this.contactData ) { this.fetchContactData(id); }
+		// if ( !this.contactData ) { console.log('FETCH!!!'); this.fetchContactData(id); }
+		this.fetchContactData(id);
 	}
 
     get contactData() { return this.props.contactData; }

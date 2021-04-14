@@ -14,7 +14,7 @@ export const contacts = ( state = {}, action ) => {
 	case FETCH_CONTACT_DATA:
 		return handleSuccess( state, action, ( prevState ) => {
 			const contactData = action.payload;
-			return { ...prevState, contactData: contactData };
+			return { ...prevState, contactID: contactData.id };
 		} );
 	default:
 		return state;

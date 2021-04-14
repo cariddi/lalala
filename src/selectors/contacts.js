@@ -1,7 +1,9 @@
 import { createSelector } from 'reselect';
 
 const getContacts = state => state.contacts;
-const getContactData = state => state.contacts;
+const getContactData = ( state, props ) => {
+    return props.match.params.id;
+};
 
 export const getContactsSelector = createSelector(
     getContacts,
@@ -9,8 +11,12 @@ export const getContactsSelector = createSelector(
 );
 
 export const getContactDataSelector = createSelector(
-    getContactData,
-    contacts => contacts.contactData
+    [ getContacts, getContactData ],
+    ( contacts, contactID) => {
+        if( !(contacts.contacts && contacts.contacts.length) ) return;
+        
+        return contacts.contacts.filter( c => c.id == contactID )[ 0 ];
+    }
 );
 
 // let fakeState = {
