@@ -14,6 +14,10 @@ export const contacts = ( state = {}, action ) => {
 	case FETCH_CONTACT_DATA:
 		return handleSuccess( state, action, ( prevState ) => {
 			const contactData = action.payload;
+			
+			if( !prevState.contacts ) prevState.contacts = [];
+			if( !prevState.contacts.includes(contactData) ) prevState.contacts.push(contactData);
+			
 			return { ...prevState, contactID: contactData.id };
 		} );
 	default:
