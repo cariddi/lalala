@@ -1,0 +1,151 @@
+
+$main-color: #373a3c;
+$secondary-color: #6c757d;
+$button-color: #ffffff;
+$background-color: #0085fc;
+
+$font-size-xs: 12px;
+$font-size-s: 14px;
+$font-size-m: 16px;
+$font-size-l: 24px;
+$font-size-xl: 32px;
+
+@mixin location($width, $height, $margin) {
+  width: $width;
+  height: $height;
+  margin: $margin;
+}
+
+@mixin font($family, $style, $weight, $size, $line-height, $font-stretch, $letter-spacing, $text-align, $color) {
+  font-family: $family;
+  font-size: $size;
+  font-style: $style;
+  font-weight: $weight;
+  line-height: $line-height;
+  font-stretch: $font-stretch;
+  letter-spacing: $letter-spacing;
+  text-align: $text-align;
+  color: $color;
+}
+
+@mixin flexSettings($display, $direction, $wrap, $justify-content, $align-items) {
+  display: $display;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+.mainContainer {
+  margin: 24px;
+}
+
+.mainHeader {
+  width: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.avatar {
+  @include location(100px, 80px, 30px 0 0 0);
+
+  object-fit: contain;
+}
+
+.headerTitle {
+  @include location(400px, 38px, 20px 300px 22px 0);
+  @include font(HelveticaNeue, normal, bold, $font-size-xl, 1.22, normal, normal, left, $main-color);
+
+  padding-right: 250px;
+}
+
+.button {
+  @include location(fit-content, 38px, 21px 0 0 0);
+  @include font(HelveticaNeue, normal, normal, $font-size-m, 1.13, normal, normal, center, $button-color);
+
+  float: right;
+  border-radius: 4px;
+  background-color: $background-color;
+
+  border: none;
+}
+
+.dataContainer {
+
+}
+
+.subHeader {
+  width: auto;
+}
+
+.subHeaderTitle {
+  @include location(138px, 28px, 20px 568px 22px 24px);
+  @include font(HelveticaNeue, normal, bold, $font-size-l, 1.21, normal, normal, left, $main-color);
+}
+
+.subHeaderLabel {
+  @include location(200px, 18px, 12px 0 0 0);
+  @include font(HelveticaNeue, normal, normal, $font-size-m, 1.13, normal, normal, right, $main-color);
+
+  float: right;
+}
+
+.dataFlexbox {
+  @include flexSettings(flex, row, wrap, flex-start, center);
+}
+
+.flexboxItem {
+  @include location(340px, 100px, 0);
+}
+
+.label {
+  @include location(100px, 14px, 0);
+  @include font(HelveticaNeue, normal, normal, $font-size-xs, 1.17, normal, normal, left, $secondary-color);
+}
+
+.value {
+  @include location(auto, 18px, 12px 0 0);
+  @include font(HelveticaNeue, normal, normal, $font-size-m, 1.13, normal, normal, left, $main-color);
+}
+
+.tableRow {
+  @include location(fit-content, 50px, 8px 0);
+
+  padding: 0 7px 4px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.02);
+  background-color: #fafdff;
+}
+
+.tableHeaderCell {
+  @include location(fit-content, 17px, 0);
+  @include font(HelveticaNeue, normal, bold, $font-size-s, 1.21, normal, normal, left, $main-color);
+}
+
+.tableCell {
+  @include location(fit-content, 18px, 0);
+  @include font(HelveticaNeue, normal, normal, $font-size-m, 1.13, normal, normal, left, $main-color);
+
+  padding: 0 8px;
+}
+
+.linkBtnEdit {
+  @include location(53px, 31px, 0); 
+  @include font(HelveticaNeue, normal, normal, $font-size-m, 1.13, normal, normal, left, #0085fc);
+
+  padding: 7px 13px 6px 12px;
+  border-radius: 4px;
+  border: solid 1px #007bff;
+  background-color: rgba(0, 123, 255, 0);
+}
+
+.linkBtnView {
+  @include location(34px, 31px, 0); 
+
+  padding: 8px 9px;
+  border-radius: 4px;
+  border: solid 1px #c0c4c7;
+  background-color: rgba(0, 123, 255, 0);
+
+  border: solid 1.5px #6c757d;
+}

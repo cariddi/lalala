@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connectComponent } from '../../lib/connectComponent';
 import { getContactDataSelector } from '../../selectors/contacts';
-import FormComponent from '../../components/FormComponent'
+import ViewComponent from '../../components/ViewComponent'
 
 export class ContainerViewContact extends Component {
     componentWillMount() {
@@ -17,12 +17,7 @@ export class ContainerViewContact extends Component {
 	render() {
         const { contactData } = this;
 
-		return (
-            <div className='ListContacts'>
-                <h2>Contact View</h2>
-                <FormComponent contactData={contactData} />
-            </div>
-        )
+		return <ViewComponent contactData={contactData} />
     }
 }
 

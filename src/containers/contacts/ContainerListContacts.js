@@ -16,12 +16,7 @@ export class ContainerListContacts extends Component {
 	render() {
         const { contacts } = this;
 
-		return (
-            <div className='ListContacts'>
-                <h2>Contact List</h2>
-                <TableComponent contacts={contacts} />
-            </div>
-        )
+		return <TableComponent contacts={contacts} />
     }
 }
 
