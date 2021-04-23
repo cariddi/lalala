@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connectComponent } from '../../lib/connectComponent';
 import { getContactDataSelector } from '../../selectors/contacts';
-import ViewComponent from '../../components/ViewComponent'
+import ViewComponent from '../../components/ViewComponent';
 
 export class ContainerViewContact extends Component {
     componentWillMount() {

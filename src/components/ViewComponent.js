@@ -1,7 +1,7 @@
 import React from 'react';
-import componentStyles from '../styles/_components.scss';
+import { Link } from 'react-router-dom';
 
-function ViewComponent({ contactData }) {
+const ViewComponent = ({ contactData }) => {
     if(!contactData) return <h3>No contact data cat</h3>
 
     return (
@@ -9,7 +9,7 @@ function ViewComponent({ contactData }) {
             <div className="mainHeader">
                 <div className="avatar">Avatar {contactData.avatar}</div>
                 <h2 className="headerTitle">{contactData.name}</h2>
-                <button className="button">Edit</button>
+                <Link to={`/edit/${contactData.id}`}><button className="button">Edit</button></Link>
             </div>
             <hr />
             <div className="dataContainer">

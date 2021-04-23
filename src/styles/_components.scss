@@ -60,7 +60,7 @@ $font-size-xl: 32px;
 }
 
 .button {
-  @include location(fit-content, 38px, 21px 0 0 0);
+  @include location(150px, 38px, 21px 0 0 0);
   @include font(HelveticaNeue, normal, normal, $font-size-m, 1.13, normal, normal, center, $button-color);
 
   float: right;
@@ -130,7 +130,7 @@ $font-size-xl: 32px;
 }
 
 .linkBtnEdit {
-  @include location(53px, 31px, 0); 
+  @include location(auto, 31px, 0); 
   @include font(HelveticaNeue, normal, normal, $font-size-m, 1.13, normal, normal, left, #0085fc);
 
   padding: 7px 13px 6px 12px;
@@ -140,7 +140,7 @@ $font-size-xl: 32px;
 }
 
 .linkBtnView {
-  @include location(34px, 31px, 0); 
+  @include location(auto, 31px, 0); 
 
   padding: 8px 9px;
   border-radius: 4px;
@@ -148,4 +148,43 @@ $font-size-xl: 32px;
   background-color: rgba(0, 123, 255, 0);
 
   border: solid 1.5px #6c757d;
+}
+
+.form {
+  margin: 0 45px 0 0;
+  @include flexSettings(flex, row, wrap, flex-end, center);
+}
+
+.formAvatarElement {
+  width: 10px;
+  margin: 10px 100px 0 0;
+}
+
+.formElement {
+  width: 400px;
+  margin: 10px;
+}
+
+.formElementHeader {
+  width: 250px;
+  height: 18px;
+  font-family: HelveticaNeue;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.13;
+  letter-spacing: normal;
+  text-align: left;
+  color: #373a3c;
+}
+
+.formElementValue {
+  width: fit-content;
+  height: 40px;
+  margin: 8px 0 0;
+  padding: 11px 226px 11px 12px;
+  border-radius: 4px;
+  border: solid 1px rgba(108, 117, 125, 0.8);
+  background-color: #ffffff;
 }

@@ -2,7 +2,9 @@ import React from 'react'
 import { Table } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
-function TableComponent( { contacts } ) {
+const TableComponent = ( { contacts } ) => {
+    if( !(contacts && contacts.length) ) return <h3>No contact list cat</h3>;
+
     return (
         <div className="mainContainer">
             <div className="mainHeader">
@@ -13,7 +15,7 @@ function TableComponent( { contacts } ) {
             <hr />
             <div className="dataContainer">
                 <div className="subHeader">
-                    <div className="subHeaderLabel">Total: 5</div>
+                    <div className="subHeaderLabel">Total: {contacts.length}</div>
                     <h2 className="subHeaderTitle"><strong>Contacts</strong></h2>
                 </div>
                 <br />
@@ -34,7 +36,6 @@ function TableComponent( { contacts } ) {
                     </Table.Header>
                     <Table.Body>
                         {
-                            contacts && contacts.length ?
                             contacts.map(c => {
                                 return (
                                     <Table.Row key={c.id} className="tableRow">
@@ -46,14 +47,12 @@ function TableComponent( { contacts } ) {
                                         <Table.Cell className="tableCell">{c.phone2}</Table.Cell>
                                         <Table.Cell className="tableCell">{c.address}</Table.Cell>
                                         <Table.Cell className="tableCell">{c.birthdate}</Table.Cell>
-                                        <Table.Cell className="tableCell"><Link to={`/view/${c.id}`}><button className="linkBtnEdit">Edit</button></Link></Table.Cell>
+                                        <Table.Cell className="tableCell"><Link to={`/edit/${c.id}`}><button className="linkBtnEdit">Edit</button></Link></Table.Cell>
                                         <Table.Cell className="tableCell"><Link to={`/view/${c.id}`}><button className="linkBtnView">+</button></Link></Table.Cell>
                                     </Table.Row>
                                 )
                                 }
                             )
-                            :
-                            <Table.Row></Table.Row>
                         }
                     </Table.Body>
                 </Table>

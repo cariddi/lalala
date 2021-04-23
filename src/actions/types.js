@@ -1,4 +1,8 @@
 // Contacts
 export const FETCH_CONTACTS = 'FETCH_CONTACTS';
 export const FETCH_CONTACT_DATA = 'FETCH_CONTACT_DATA';
+export const EDIT_CONTACT = 'EDIT_CONTACT';
+
+export const FETCH_STATES = 'FETCH_STATES';
+export const FETCH_COUNTRIES = 'FETCH_COUNTRIES';
 
